@@ -5,8 +5,8 @@ const cors = require("cors");
 const app = express();
 
 // accessing environmental variable
-const PORT = process.env.PORT;
-const ORIGINS = process.env.ORIGINS;
+const PORT = process.env.port;
+const ORIGINS = process.env.origins;
 const MONGOURL = process.env.mongoUrl_atlas;
 
 const { connectToDB } = require("./connection");

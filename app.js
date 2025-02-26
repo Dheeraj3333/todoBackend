@@ -16,16 +16,10 @@ connectToDB(MONGOURL);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const allowedOrigins = ORIGINS?.split(",") || [];
+// const allowedOrigins = ORIGINS?.split(",") || [];
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: ORIGINS,
     credentials: true, // Allows cookies and authentication headers
   })
 );
